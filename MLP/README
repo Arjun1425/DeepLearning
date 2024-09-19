@@ -1,1 +1,29 @@
+# MLP Credit Card Customer Churn Prediction
 
+This repository contains the implementation of a **Multilayer Perceptron (MLP)** to predict customer churn for a credit card company. The goal is to build a neural network model that can identify which customers are likely to stop using the credit card service.
+
+## Overview
+
+Customer churn is a critical issue for businesses, particularly in the financial sector. Understanding the behavior of customers and predicting whether they will leave the company allows businesses to take proactive measures. In this project, we use a dataset of credit card customers and apply an MLP (a type of feedforward neural network) to predict churn, helping the company retain valuable customers.
+
+## Dataset
+
+The dataset consists of information about credit card customers, including demographic, account balance, and usage patterns. Key features include:
+- **Customer Age**
+- **Gender**
+- **Credit Limit**
+- **Total Transaction Amount**
+- **Months on Book**
+- **Income Category**
+- **Churn Label (Target)**: 1 for customers who have churned, 0 for those who haven't.
+
+The dataset can be found [here](#) (provide the link if hosted).
+
+## Model Architecture
+
+The **Multilayer Perceptron (MLP)** model used in this project has the following architecture:
+1. **Input Layer**: Takes customer features as input.
+2. **Hidden Layers**: Two hidden layers with ReLU activation.
+3. **Output Layer**: Single neuron with sigmoid activation for binary classification (churn or not).
+
+The architecture is simple yet effective for binary classification tasks like churn prediction.
