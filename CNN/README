@@ -1,6 +1,6 @@
 # LeNet on MNIST Dataset
 
-
+![image](https://github.com/user-attachments/assets/800b2f17-e58b-4524-b38a-b5ad06228575)
 
 This repository demonstrates the implementation of the classic **LeNet-5** convolutional neural network architecture to classify handwritten digits using the **MNIST dataset**.
 
