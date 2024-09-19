@@ -17,7 +17,7 @@ The dataset consists of information about credit card customers, including demog
 - **Income Category**
 - **Churn Label (Target)**: 1 for customers who have churned, 0 for those who haven't.
 
-The dataset can be found [here](#) (provide the link if hosted).
+The dataset can be found here: https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers?sort=votes.
 
 ## Model Architecture
 
