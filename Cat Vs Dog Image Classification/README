@@ -1,1 +1,10 @@
+We will go over the following options:
 
+* training a small network from scratch (as a baseline)
+* using the bottleneck features of a pre-trained network
+* fine-tuning the top layers of a pre-trained network
+
+This will lead us to cover the following Keras features:
+* fit_generator for training Keras a model using Python data generators
+* ImageDataGenerator for real-time data augmentation
+* layer freezing and model fine-tuning...and more.
