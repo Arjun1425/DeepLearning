@@ -9,7 +9,7 @@ This will lead us to cover the following Keras features:
 * ImageDataGenerator for real-time data augmentation
 * layer freezing and model fine-tuning...and more.
 
-##Our setup: only 2000 training examples (1000 per class)
+##Our setup: only 2000 training examples (1000 per class) and 800 testing samples. 
 
 Data pre-processing and data augmentation:
 * In Keras, this can be done via the Keras.preprocessing.image.ImageDataGenerator class.
