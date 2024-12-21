@@ -1,0 +1,117 @@
+# Next Word Predictor Using LSTM
+
+This project implements a **Next Word Predictor** using a Long Short-Term Memory (LSTM) model. The task is to predict the next word in a sequence based on a given input. The dataset used for this project is unique as it is based on a **PhD dissertation proposal report**. This project demonstrates the transformation of a text generation task into a supervised learning problem.
+
+## Table of Contents
+- [Overview](#overview)
+- [Dataset and Problem Conversion](#dataset-and-problem-conversion)
+- [Preprocessing](#preprocessing)
+- [Model Architecture](#model-architecture)
+- [Training and Optimization](#training-and-optimization)
+- [Future Improvements](#future-improvements)
+- [Requirements](#requirements)
+
+## Overview
+
+Next Word Prediction is a popular application of LSTM models, showcasing their ability to handle sequential data with long-term dependencies. This project explores the process of:
+- Converting text data into a supervised learning problem.
+- Building an LSTM-based architecture to predict the next word in a sequence.
+- Handling varying sequence lengths and categorical outputs efficiently.
+
+## Dataset and Problem Conversion
+
+The dataset for this project is derived from a **PhD dissertation proposal report**. Here's how the text was transformed into a supervised learning problem:
+
+1. **Text Splitting**:
+   - The text is broken into sentences and then further split into words.
+   - For example:
+     ```
+     Sentence: "IDPs stands for Intrinsically disordered proteins."
+     Inputs: [‘IDPs’, ‘IDPs stands’, ‘IDPs stands for’, …, ‘IDPs stands for Intrinsically disordered’]
+     Outputs: [‘stands’, ‘for’, ‘Intrinsically’, …, ‘proteins’]
+     ```
+
+2. **Vectorization**:
+   - A Keras `Tokenizer` is used to assign unique numerical indices to each word in the dataset.
+
+## Preprocessing
+
+1. **Padding**:
+   - Sentences have varying lengths, which can create issues during training. To resolve this:
+     - **Zero-padding** is applied to make all sequences of the same length.
+     - **Pre-padding** is used, where zeros are added at the start to ensure the last column represents the output.
+
+2. **One-Hot Encoding**:
+   - The output words are converted into categorical data using one-hot encoding, as this is a multi-class classification problem (not regression).
+
+## Model Architecture
+
+The neural network consists of the following layers:
+
+1. **Embedding Layer**:
+   - Maps 1,931 unique words to 100-dimensional vectors.
+
+2. **LSTM Layer**:
+   - Contains 150 nodes and processes sequences with a maximum length of 52 time steps (based on the length of the longest sentence in the dataset).
+
+3. **Dense Layer**:
+   - Contains 1,931 nodes with a `softmax` activation function to predict the next word by selecting the one with the highest probability.
+
+### Model Summary:
+- Input: Sequence of words (up to 52 words per sentence).
+- Output: Predicted next word (from the vocabulary of 1,931 words).
+
+```python
+model = Sequential([
+    Embedding(input_dim=1931, output_dim=100, input_length=52),
+    LSTM(units=150, return_sequences=False),
+    Dense(units=1931, activation='softmax')
+])
+```
+
+## Training and Optimization
+
+- **Loss Function**: Categorical Cross-Entropy.
+- **Optimizer**: Adam (other optimizers like RMSprop can also be explored).
+- **Batch Size**: Configurable based on system memory.
+- **Epochs**: Configurable, based on convergence and overfitting checks.
+
+### Steps to Improve Model Efficiency:
+1. **Add More Data**:
+   - Increasing the dataset size helps the model generalize better.
+
+2. **Hyperparameter Tuning**:
+   - Experiment with:
+     - Number of LSTM nodes.
+     - Optimizers (e.g., RMSprop, Adam).
+     - Learning rates and number of epochs.
+
+3. **Advanced Architectures**:
+   - Implement:
+     - Stacked LSTM layers.
+     - Bidirectional LSTM.
+     - Transformers for better sequence modeling.
+
+## Future Improvements
+
+The following advanced techniques can enhance the model:
+- **Pre-trained Embeddings**: Use embeddings like GloVe or FastText for better word representations.
+- **Data Augmentation**: Generate synthetic data by paraphrasing or shuffling sentences.
+- **Transformer Models**: Replace LSTM with transformer-based models like GPT or BERT for better performance.
+
+## Requirements
+
+- Python >= 3.7
+- TensorFlow >= 2.0
+- Numpy
+- Keras
+- Matplotlib
+
+Install dependencies using:
+```bash
+pip install tensorflow numpy keras matplotlib
+```
+
+## Stay Tuned
+
+For more updates and extensions to this project, stay tuned! Advanced architectures and experiments will be explored in the future.
