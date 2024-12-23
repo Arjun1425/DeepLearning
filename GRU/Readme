@@ -1,1 +1,2 @@
-
+Trained NN on IMDB dataset. 
+Here, I have used 2 layers of GRU (just an example of deep RNNs) having 5 nodes each. 
